@@ -27,7 +27,7 @@ public class Bike {
 		speedMS = movementSp();
 		this.price = price;
 		this.Producer = Producer;
-		image = makeAnImage(way);
+		//image = makeAnImage(way);
 	}// Bike
 	
 	
@@ -105,7 +105,7 @@ public class Bike {
 	// ========== print ==========
 	public String print() {
 		return "Bike's producer: " + determineProducer()
-		+"\nTire's price: " + determinePrice()
+		+"\nTire's price: " + determinePrice() + " EUR"
 		+"\nTire's diameter: " + determineDiameter()
 		+"\nChair's pozition: " + determinePoz()
 		+"\nMovement speed: " + determineMoveSpeed() + "m/s\n";

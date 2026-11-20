@@ -1,14 +1,12 @@
 package Bikes;
 
 import java.awt.Image;
-import java.net.URL;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 public class Bike {
-	// ========== Attributes ==========
+	// ========== Attributes ========== //
 	public int chairPoz;
 	public double tireD, speedMS, price;
 	public String Producer;
@@ -20,14 +18,14 @@ public class Bike {
 	
 	
 	
-	// ========== Constructor ==========
+	// ========== Constructor ========== //
 	public Bike(double tireD, int chairPoz, double price, String Producer, String way) {
 		this.tireD = tireD;
 		this.chairPoz = chairPoz;
 		speedMS = movementSp();
 		this.price = price;
 		this.Producer = Producer;
-		//image = makeAnImage(way);
+		image = makeAnImage(way);
 	}// Bike
 	
 	
@@ -35,7 +33,7 @@ public class Bike {
 	
 	
 	
-	// ========== movementSp ==========
+	// ========== movementSp ========== // 
 	public double movementSp() {
 		double distM = rand.nextDouble() * (1000 - 1) + 1;
 		double timeS = rand.nextDouble() * (60-10) + 10;
@@ -47,18 +45,12 @@ public class Bike {
 	
 	
 	
-	// ========== makeAnImage ==========
+	// ========== makeAnImage ========== // 
 	public ImageIcon makeAnImage(String way) {
-		if(!way.endsWith(".png")) {
+		if(!way.endsWith(".png")) 
 			way += ".png";
-		}
-		URL Resource = getClass().getResource("/image/" + way);
-		if(Resource != null) {
-			return new ImageIcon(new ImageIcon(Resource).getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
-		} else {
-			JOptionPane.showMessageDialog(null, "Can noot find any images: " + way, "Warning", JOptionPane.WARNING_MESSAGE);
-			return null;
-		}
+			return new ImageIcon(new ImageIcon(way).getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+		
 	}// makeAnImage
 	
 	
@@ -66,7 +58,7 @@ public class Bike {
 	
 	
 	
-	// ========== viewAnImage ==========
+	// ========== viewAnImage ========== // 
 	public ImageIcon viewAnImage() {
 		return image;
 	}// viewAnImage
@@ -76,7 +68,7 @@ public class Bike {
 	
 	
 	
-	// ========== Methods to determine attributes ==========
+	// ========== Methods to determine attributes ========== //
 	public double determineDiameter() {
 		return tireD;
 	}
@@ -102,13 +94,14 @@ public class Bike {
 	
 	
 	
-	// ========== print ==========
+	// ========== print ========== //
 	public String print() {
 		return "Bike's producer: " + determineProducer()
 		+"\nTire's price: " + determinePrice() + " EUR"
 		+"\nTire's diameter: " + determineDiameter()
 		+"\nChair's pozition: " + determinePoz()
 		+"\nMovement speed: " + determineMoveSpeed() + "m/s\n";
+		//viewAnImage();
 	}// print
 	
 	
